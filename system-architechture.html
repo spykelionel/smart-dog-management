@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>System Architecture</title>
+  </head>
+  <body>
+    <svg viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="900" height="700" fill="#f8f9fa" stroke="none" />
+
+      <!-- Title -->
+      <text
+        x="450"
+        y="30"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="18"
+        font-weight="bold"
+        fill="#2c3e50"
+      >
+        Smart Dog Cage System Architecture
+      </text>
+
+      <!-- Mobile Application -->
+      <g id="mobile-app">
+        <rect
+          x="50"
+          y="80"
+          width="120"
+          height="180"
+          rx="15"
+          fill="#3498db"
+          stroke="#2980b9"
+          stroke-width="2"
+        />
+        <rect
+          x="60"
+          y="90"
+          width="100"
+          height="60"
+          rx="5"
+          fill="#ecf0f1"
+          stroke="#bdc3c7"
+          stroke-width="1"
+        />
+        <circle cx="110" cy="110" r="8" fill="#2ecc71" />
+        <text
+          x="110"
+          y="115"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="6"
+          fill="white"
+        >
+          ●
+        </text>
+        <text
+          x="110"
+          y="135"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="10"
+          fill="#2c3e50"
+        >
+          User Interface
+        </text>
+
+        <rect
+          x="65"
+          y="160"
+          width="40"
+          height="20"
+          rx="3"
+          fill="#e74c3c"
+          stroke="#c0392b"
+          stroke-width="1"
+        />
+        <text
+          x="85"
+          y="173"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="8"
+          fill="white"
+        >
+          Lock
+        </text>
+
+        <rect
+          x="115"
+          y="160"
+          width="40"
+          height="20"
+          rx="3"
+          fill="#27ae60"
+          stroke="#229954"
+          stroke-width="1"
+        />
+        <text
+          x="135"
+          y="173"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="8"
+          fill="white"
+        >
+          Unlock
+        </text>
+
+        <rect
+          x="65"
+          y="190"
+          width="90"
+          height="20"
+          rx="3"
+          fill="#f39c12"
+          stroke="#e67e22"
+          stroke-width="1"
+        />
+        <text
+          x="110"
+          y="203"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="8"
+          fill="white"
+        >
+          Voice Commands
+        </text>
+
+        <rect
+          x="65"
+          y="220"
+          width="90"
+          height="20"
+          rx="3"
+          fill="#9b59b6"
+          stroke="#8e44ad"
+          stroke-width="1"
+        />
+        <text
+          x="110"
+          y="233"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="8"
+          fill="white"
+        >
+          Monitor Status
+        </text>
+
+        <text
+          x="110"
+          y="280"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="12"
+          font-weight="bold"
+          fill="#2c3e50"
+        >
+          Mobile Application
+        </text>
+        <text
+          x="110"
+          y="295"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="10"
+          fill="#7f8c8d"
+        >
+          (User Interface)
+        </text>
+      </g>
+
+      <!-- Cloud Server / Network -->
+      <g id="cloud-server">
+        <ellipse
+          cx="300"
+          cy="120"
+          rx="80"
+          ry="40"
+          fill="#34495e"
+          stroke="#2c3e50"
+          stroke-width="2"
+        />
+        <circle cx="280" cy="110" r="6" fill="#ecf0f1" />
+        <circle cx="300" cy="105" r="8" fill="#ecf0f1" />
+        <circle cx="320" cy="110" r="6" fill="#ecf0f1" />
+        <circle cx="285" cy="125" r="4" fill="#ecf0f1" />
+        <circle cx="305" cy="130" r="5" fill="#ecf0f1" />
+        <circle cx="315" cy="125" r="4" fill="#ecf0f1" />
+
+        <text
+          x="300"
+          y="190"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="12"
+          font-weight="bold"
+          fill="#2c3e50"
+        >
+          Cloud Server /
+        </text>
+        <text
+          x="300"
+          y="205"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="12"
+          font-weight="bold"
+          fill="#2c3e50"
+        >
+          Local Network
+        </text>
+        <text
+          x="300"
+          y="220"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="10"
+          fill="#7f8c8d"
+        >
+          (MQTT/Bluetooth/WiFi)
+        </text>
+      </g>
+
+      <!-- IoT Controller -->
+      <g id="iot-controller">
+        <rect
+          x="400"
+          y="300"
+          width="140"
+          height="100"
+          rx="10"
+          fill="#2ecc71"
+          stroke="#27ae60"
+          stroke-width="2"
+        />
+        <rect x="410" y="310" width="30" height="20" rx="2" fill="#34495e" />
+        <rect x="450" y="310" width="30" height="20" rx="2" fill="#34495e" />
+        <rect x="490" y="310" width="30" height="20" rx="2" fill="#34495e" />
+
+        <circle cx="425" cy="350" r="8" fill="#e74c3c" />
+        <circle cx="465" cy="350" r="8" fill="#f39c12" />
+        <circle cx="505" cy="350" r="8" fill="#3498db" />
+
+        <rect
+          x="415"
+          y="370"
+          width="100"
+          height="15"
+          rx="2"
+          fill="#ecf0f1"
+          stroke="#bdc3c7"
+          stroke-width="1"
+        />
+        <text
+          x="465"
+          y="380"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="8"
+          fill="#2c3e50"
+        >
+          ESP32
+        </text>
+
+        <text
+          x="470"
+          y="420"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="12"
+          font-weight="bold"
+          fill="#2c3e50"
+        >
+          IoT Controller
+        </text>
+        <text
+          x="470"
+          y="435"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="10"
+          fill="#7f8c8d"
+        >
+          (e.g., ESP32)
+        </text>
+      </g>
+
+      <!-- Smart Dog Cage Lock -->
+      <g id="cage-lock">
+        <rect
+          x="200"
+          y="500"
+          width="100"
+          height="80"
+          rx="10"
+          fill="#e74c3c"
+          stroke="#c0392b"
+          stroke-width="2"
+        />
+        <rect x="220" y="520" width="60" height="40" rx="5" fill="#34495e" />
+        <circle
+          cx="250"
+          cy="540"
+          r="15"
+          fill="#f39c12"
+          stroke="#e67e22"
+          stroke-width="2"
+        />
+        <rect x="245" y="530" width="10" height="20" fill="#2c3e50" />
+
+        <text
+          x="250"
+          y="600"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="12"
+          font-weight="bold"
+          fill="#2c3e50"
+        >
+          Smart Dog Cage Lock
+        </text>
+        <text
+          x="250"
+          y="615"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="10"
+          fill="#7f8c8d"
+        >
+          (Servo/Motor)
+        </text>
+      </g>
+
+      <!-- Voice Command Module -->
+      <g id="voice-module">
+        <rect
+          x="600"
+          y="500"
+          width="100"
+          height="80"
+          rx="10"
+          fill="#f39c12"
+          stroke="#e67e22"
+          stroke-width="2"
+        />
+        <circle cx="650" cy="530" r="20" fill="#34495e" />
+        <circle cx="650" cy="530" r="15" fill="#2c3e50" />
+        <circle cx="650" cy="530" r="10" fill="#34495e" />
+        <circle cx="650" cy="530" r="5" fill="#ecf0f1" />
+
+        <rect
+          x="620"
+          y="555"
+          width="60"
+          height="15"
+          rx="2"
+          fill="#ecf0f1"
+          stroke="#bdc3c7"
+          stroke-width="1"
+        />
+        <text
+          x="650"
+          y="565"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="8"
+          fill="#2c3e50"
+        >
+          Speaker
+        </text>
+
+        <text
+          x="650"
+          y="600"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="12"
+          font-weight="bold"
+          fill="#2c3e50"
+        >
+          Voice Command
+        </text>
+        <text
+          x="650"
+          y="615"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="12"
+          font-weight="bold"
+          fill="#2c3e50"
+        >
+          Module
+        </text>
+        <text
+          x="650"
+          y="630"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="10"
+          fill="#7f8c8d"
+        >
+          (Speaker + Messages)
+        </text>
+      </g>
+
+      <!-- Power Source -->
+      <g id="power-source">
+        <rect
+          x="720"
+          y="300"
+          width="120"
+          height="100"
+          rx="10"
+          fill="#95a5a6"
+          stroke="#7f8c8d"
+          stroke-width="2"
+        />
+
+        <!-- Battery -->
+        <rect
+          x="730"
+          y="320"
+          width="30"
+          height="20"
+          rx="2"
+          fill="#2ecc71"
+          stroke="#27ae60"
+          stroke-width="1"
+        />
+        <rect x="760" y="325" width="3" height="10" fill="#27ae60" />
+        <text
+          x="745"
+          y="350"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="8"
+          fill="#2c3e50"
+        >
+          Battery
+        </text>
+
+        <!-- Solar -->
+        <rect
+          x="770"
+          y="320"
+          width="25"
+          height="20"
+          rx="2"
+          fill="#f1c40f"
+          stroke="#f39c12"
+          stroke-width="1"
+        />
+        <line
+          x1="775"
+          y1="325"
+          x2="785"
+          y2="335"
+          stroke="#e67e22"
+          stroke-width="1"
+        />
+        <line
+          x1="785"
+          y1="325"
+          x2="790"
+          y2="335"
+          stroke="#e67e22"
+          stroke-width="1"
+        />
+        <text
+          x="782"
+          y="350"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="8"
+          fill="#2c3e50"
+        >
+          Solar
+        </text>
+
+        <!-- AC -->
+        <rect
+          x="805"
+          y="320"
+          width="25"
+          height="20"
+          rx="2"
+          fill="#3498db"
+          stroke="#2980b9"
+          stroke-width="1"
+        />
+        <circle cx="817" cy="330" r="3" fill="#ecf0f1" />
+        <text
+          x="817"
+          y="350"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="8"
+          fill="#2c3e50"
+        >
+          AC
+        </text>
+
+        <text
+          x="780"
+          y="420"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="12"
+          font-weight="bold"
+          fill="#2c3e50"
+        >
+          Power Source
+        </text>
+        <text
+          x="780"
+          y="435"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="10"
+          fill="#7f8c8d"
+        >
+          (Battery/Solar/AC)
+        </text>
+      </g>
+
+      <!-- Data Flow Arrows -->
+      <!-- Mobile App to Cloud -->
+      <defs>
+        <marker
+          id="arrowhead"
+          markerWidth="10"
+          markerHeight="7"
+          refX="9"
+          refY="3.5"
+          orient="auto"
+        >
+          <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50" />
+        </marker>
+      </defs>
+
+      <line
+        x1="170"
+        y1="150"
+        x2="220"
+        y2="130"
+        stroke="#2c3e50"
+        stroke-width="2"
+        marker-end="url(#arrowhead)"
+      />
+      <text
+        x="190"
+        y="135"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="9"
+        fill="#2c3e50"
+      >
+        WiFi/BT
+      </text>
+
+      <!-- Cloud to IoT Controller -->
+      <line
+        x1="350"
+        y1="160"
+        x2="430"
+        y2="300"
+        stroke="#2c3e50"
+        stroke-width="2"
+        marker-end="url(#arrowhead)"
+      />
+      <text
+        x="385"
+        y="220"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="9"
+        fill="#2c3e50"
+      >
+        MQTT/WiFi
+      </text>
+
+      <!-- IoT Controller to Cage Lock -->
+      <line
+        x1="430"
+        y1="400"
+        x2="280"
+        y2="500"
+        stroke="#2c3e50"
+        stroke-width="2"
+        marker-end="url(#arrowhead)"
+      />
+      <text
+        x="350"
+        y="445"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="9"
+        fill="#2c3e50"
+      >
+        Control Signal
+      </text>
+
+      <!-- IoT Controller to Voice Module -->
+      <line
+        x1="520"
+        y1="400"
+        x2="620"
+        y2="500"
+        stroke="#2c3e50"
+        stroke-width="2"
+        marker-end="url(#arrowhead)"
+      />
+      <text
+        x="575"
+        y="445"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="9"
+        fill="#2c3e50"
+      >
+        Audio Signal
+      </text>
+
+      <!-- Power Source to IoT Controller -->
+      <line
+        x1="720"
+        y1="350"
+        x2="540"
+        y2="350"
+        stroke="#e74c3c"
+        stroke-width="3"
+        marker-end="url(#arrowhead)"
+      />
+      <text
+        x="630"
+        y="340"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="9"
+        fill="#e74c3c"
+      >
+        Power
+      </text>
+
+      <!-- Power to other components -->
+      <line
+        x1="720"
+        y1="380"
+        x2="300"
+        y2="580"
+        stroke="#e74c3c"
+        stroke-width="2"
+        stroke-dasharray="5,5"
+      />
+      <line
+        x1="720"
+        y1="370"
+        x2="650"
+        y2="500"
+        stroke="#e74c3c"
+        stroke-width="2"
+        stroke-dasharray="5,5"
+      />
+
+      <!-- Data Flow Legend -->
+      <rect
+        x="50"
+        y="630"
+        width="250"
+        height="60"
+        fill="white"
+        stroke="#ccc"
+        stroke-width="1"
+        rx="5"
+      />
+      <text
+        x="60"
+        y="645"
+        font-family="Arial, sans-serif"
+        font-size="12"
+        font-weight="bold"
+        fill="#2c3e50"
+      >
+        Data Flow:
+      </text>
+      <line
+        x1="60"
+        y1="655"
+        x2="90"
+        y2="655"
+        stroke="#2c3e50"
+        stroke-width="2"
+        marker-end="url(#arrowhead)"
+      />
+      <text
+        x="95"
+        y="660"
+        font-family="Arial, sans-serif"
+        font-size="10"
+        fill="#2c3e50"
+      >
+        Control/Data Signal
+      </text>
+      <line
+        x1="60"
+        y1="675"
+        x2="90"
+        y2="675"
+        stroke="#e74c3c"
+        stroke-width="2"
+        stroke-dasharray="5,5"
+      />
+      <text
+        x="95"
+        y="680"
+        font-family="Arial, sans-serif"
+        font-size="10"
+        fill="#2c3e50"
+      >
+        Power Supply
+      </text>
+
+      <!-- System Flow Steps -->
+      <rect
+        x="500"
+        y="80"
+        width="350"
+        height="150"
+        fill="#ecf0f1"
+        stroke="#bdc3c7"
+        stroke-width="1"
+        rx="5"
+      />
+      <text
+        x="675"
+        y="100"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="14"
+        font-weight="bold"
+        fill="#2c3e50"
+      >
+        System Operation Flow
+      </text>
+
+      <text
+        x="520"
+        y="125"
+        font-family="Arial, sans-serif"
+        font-size="11"
+        fill="#2c3e50"
+      >
+        1. User Action on Mobile App
+      </text>
+      <text
+        x="520"
+        y="145"
+        font-family="Arial, sans-serif"
+        font-size="11"
+        fill="#2c3e50"
+      >
+        2. Wireless Communication (WiFi/Bluetooth/MQTT)
+      </text>
+      <text
+        x="520"
+        y="165"
+        font-family="Arial, sans-serif"
+        font-size="11"
+        fill="#2c3e50"
+      >
+        3. IoT Controller processes command
+      </text>
+      <text
+        x="520"
+        y="185"
+        font-family="Arial, sans-serif"
+        font-size="11"
+        fill="#2c3e50"
+      >
+        4. Execute: Cage Lock Control OR Voice Playback
+      </text>
+      <text
+        x="520"
+        y="205"
+        font-family="Arial, sans-serif"
+        font-size="11"
+        fill="#2c3e50"
+      >
+        5. Power Supply maintains all components
+      </text>
+    </svg>
+  </body>
+</html>

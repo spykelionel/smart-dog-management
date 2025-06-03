@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Network Diagram</title>
+  </head>
+  <body>
+    <svg viewBox="0 0 800 900" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Gradients for modern look -->
+        <linearGradient id="mobileGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color: #4a90e2; stop-opacity: 1" />
+          <stop offset="100%" style="stop-color: #357abd; stop-opacity: 1" />
+        </linearGradient>
+        <linearGradient id="routerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color: #9b59b6; stop-opacity: 1" />
+          <stop offset="100%" style="stop-color: #8e44ad; stop-opacity: 1" />
+        </linearGradient>
+        <linearGradient id="iotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color: #50c878; stop-opacity: 1" />
+          <stop offset="100%" style="stop-color: #3da354; stop-opacity: 1" />
+        </linearGradient>
+        <linearGradient id="lockGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color: #ff6b35; stop-opacity: 1" />
+          <stop offset="100%" style="stop-color: #e55a2b; stop-opacity: 1" />
+        </linearGradient>
+        <linearGradient id="speakerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color: #f39c12; stop-opacity: 1" />
+          <stop offset="100%" style="stop-color: #e67e22; stop-opacity: 1" />
+        </linearGradient>
+
+        <!-- Drop shadow filter -->
+        <filter id="dropshadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="3" dy="3" stdDeviation="3" flood-opacity="0.3" />
+        </filter>
+
+        <!-- Glow effect for connections -->
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+          <feMerge>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- Background -->
+      <rect width="800" height="900" fill="#f8fafc" />
+
+      <!-- Title -->
+      <text
+        x="400"
+        y="40"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="28"
+        font-weight="bold"
+        fill="#2c3e50"
+      >
+        Smart Dog Cage - Network Diagram
+      </text>
+
+      <!-- Mobile App -->
+      <g transform="translate(300, 80)">
+        <rect
+          x="0"
+          y="0"
+          width="200"
+          height="100"
+          rx="15"
+          fill="url(#mobileGrad)"
+          filter="url(#dropshadow)"
+        />
+        <text
+          x="100"
+          y="30"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="16"
+          font-weight="bold"
+          fill="white"
+        >
+          Mobile App
+        </text>
+        <text
+          x="100"
+          y="50"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="12"
+          fill="rgba(255,255,255,0.9)"
+        >
+          iOS/Android Interface
+        </text>
+        <text
+          x="100"
+          y="70"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="11"
+          fill="rgba(255,255,255,0.8)"
+        >
+          📱 User Control Panel
+        </text>
+      </g>
+
+      <!-- Connection arrow from Mobile App -->
+      <g>
+        <defs>
+          <marker
+            id="arrowhead1"
+            markerWidth="10"
+            markerHeight="7"
+            refX="9"
+            refY="3.5"
+            orient="auto"
+          >
+            <polygon points="0 0, 10 3.5, 0 7" fill="#34495e" />
+          </marker>
+        </defs>
+        <line
+          x1="400"
+          y1="180"
+          x2="400"
+          y2="240"
+          stroke="#34495e"
+          stroke-width="4"
+          marker-end="url(#arrowhead1)"
+          filter="url(#glow)"
+        >
+          <animate
+            attributeName="stroke-dasharray"
+            values="0,8;8,8;16,0"
+            dur="2s"
+            repeatCount="indefinite"
+          />
+        </line>
+        <!-- Protocol labels -->
+        <rect
+          x="350"
+          y="200"
+          width="100"
+          height="25"
+          rx="12"
+          fill="rgba(52, 73, 94, 0.1)"
+          stroke="#34495e"
+          stroke-width="1"
+        />
+        <text
+          x="400"
+          y="217"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="11"
+          font-weight="bold"
+          fill="#34495e"
+        >
+          Wi-Fi / Internet
+        </text>
+      </g>
+
+      <!-- Router/Cloud Server (Optional) -->
+      <g transform="translate(250, 250)">
+        <rect
+          x="0"
+          y="0"
+          width="300"
+          height="120"
+          rx="15"
+          fill="url(#routerGrad)"
+          filter="url(#dropshadow)"
+        />
+        <text
+          x="150"
+          y="30"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="16"
+          font-weight="bold"
+          fill="white"
+        >
+          Router / Cloud Server
+        </text>
+        <text
+          x="150"
+          y="50"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="13"
+          fill="rgba(255,255,255,0.9)"
+        >
+          (Optional Network Layer)
+        </text>
+
+        <!-- Two options side by side -->
+        <rect
+          x="20"
+          y="60"
+          width="120"
+          height="45"
+          rx="8"
+          fill="rgba(255,255,255,0.2)"
+          stroke="rgba(255,255,255,0.4)"
+          stroke-width="1"
+        />
+        <text
+          x="80"
+          y="78"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="11"
+          fill="white"
+        >
+          Local Router
+        </text>
+        <text
+          x="80"
+          y="92"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="10"
+          fill="rgba(255,255,255,0.8)"
+        >
+          🏠 Home Network
+        </text>
+
+        <text
+          x="150"
+          y="83"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="14"
+          font-weight="bold"
+          fill="white"
+        >
+          OR
+        </text>
+
+        <rect
+          x="160"
+          y="60"
+          width="120"
+          height="45"
+          rx="8"
+          fill="rgba(255,255,255,0.2)"
+          stroke="rgba(255,255,255,0.4)"
+          stroke-width="1"
+        />
+        <text
+          x="220"
+          y="78"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="11"
+          fill="white"
+        >
+          Cloud Server
+        </text>
+        <text
+          x="220"
+          y="92"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="10"
+          fill="rgba(255,255,255,0.8)"
+        >
+          ☁️ Remote Access
+        </text>
+      </g>
+
+      <!-- Connection arrow to IoT Controller -->
+      <g>
+        <defs>
+          <marker
+            id="arrowhead2"
+            markerWidth="10"
+            markerHeight="7"
+            refX="9"
+            refY="3.5"
+            orient="auto"
+          >
+            <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60" />
+          </marker>
+        </defs>
+        <line
+          x1="400"
+          y1="370"
+          x2="400"
+          y2="430"
+          stroke="#27ae60"
+          stroke-width="4"
+          marker-end="url(#arrowhead2)"
+          filter="url(#glow)"
+        >
+          <animate
+            attributeName="opacity"
+            values="0.6;1;0.6"
+            dur="1.5s"
+            repeatCount="indefinite"
+          />
+        </line>
+        <!-- Protocol labels -->
+        <rect
+          x="320"
+          y="390"
+          width="160"
+          height="25"
+          rx="12"
+          fill="rgba(39, 174, 96, 0.1)"
+          stroke="#27ae60"
+          stroke-width="1"
+        />
+        <text
+          x="400"
+          y="407"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="11"
+          font-weight="bold"
+          fill="#27ae60"
+        >
+          Wi-Fi / Bluetooth / HTTP
+        </text>
+      </g>
+
+      <!-- IoT Controller -->
+      <g transform="translate(250, 440)">
+        <rect
+          x="0"
+          y="0"
+          width="300"
+          height="140"
+          rx="15"
+          fill="url(#iotGrad)"
+          filter="url(#dropshadow)"
+        />
+        <text
+          x="150"
+          y="30"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="16"
+          font-weight="bold"
+          fill="white"
+        >
+          IoT Controller
+        </text>
+        <text
+          x="150"
+          y="50"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="13"
+          fill="rgba(255,255,255,0.9)"
+        >
+          ESP32 / Arduino + Wi-Fi Module
+        </text>
+
+        <!-- Controller details -->
+        <rect
+          x="20"
+          y="65"
+          width="260"
+          height="25"
+          rx="5"
+          fill="rgba(255,255,255,0.2)"
+          stroke="rgba(255,255,255,0.4)"
+          stroke-width="1"
+        />
+        <text
+          x="150"
+          y="82"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="11"
+          fill="white"
+        >
+          🔧 Main Processing Unit
+        </text>
+
+        <rect
+          x="20"
+          y="95"
+          width="260"
+          height="35"
+          rx="5"
+          fill="rgba(255,255,255,0.15)"
+        />
+        <text
+          x="150"
+          y="110"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="10"
+          fill="rgba(255,255,255,0.8)"
+        >
+          • Network Communication Handler
+        </text>
+        <text
+          x="150"
+          y="123"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="10"
+          fill="rgba(255,255,255,0.8)"
+        >
+          • Device Control Logic
+        </text>
+      </g>
+
+      <!-- Branch connections to devices -->
+      <!-- Left branch to Lock -->
+      <g>
+        <defs>
+          <marker
+            id="arrowhead3"
+            markerWidth="10"
+            markerHeight="7"
+            refX="9"
+            refY="3.5"
+            orient="auto"
+          >
+            <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c" />
+          </marker>
+        </defs>
+        <!-- Horizontal line -->
+        <line
+          x1="400"
+          y1="580"
+          x2="400"
+          y2="620"
+          stroke="#2c3e50"
+          stroke-width="3"
+        />
+        <!-- T-junction -->
+        <line
+          x1="250"
+          y1="620"
+          x2="550"
+          y2="620"
+          stroke="#2c3e50"
+          stroke-width="3"
+        />
+
+        <!-- Left branch -->
+        <line
+          x1="250"
+          y1="620"
+          x2="200"
+          y2="670"
+          stroke="#e74c3c"
+          stroke-width="3"
+          marker-end="url(#arrowhead3)"
+          filter="url(#glow)"
+        >
+          <animate
+            attributeName="opacity"
+            values="0.6;1;0.6"
+            dur="2s"
+            repeatCount="indefinite"
+          />
+        </line>
+
+        <!-- Right branch -->
+        <line
+          x1="550"
+          y1="620"
+          x2="600"
+          y2="670"
+          stroke="#f39c12"
+          stroke-width="3"
+          marker-end="url(#arrowhead3)"
+          filter="url(#glow)"
+        >
+          <animate
+            attributeName="opacity"
+            values="0.6;1;0.6"
+            dur="2.2s"
+            repeatCount="indefinite"
+          />
+        </line>
+      </g>
+
+      <!-- Lock Cage Motor -->
+      <g transform="translate(50, 680)">
+        <rect
+          x="0"
+          y="0"
+          width="200"
+          height="100"
+          rx="15"
+          fill="url(#lockGrad)"
+          filter="url(#dropshadow)"
+        />
+        <text
+          x="100"
+          y="30"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="16"
+          font-weight="bold"
+          fill="white"
+        >
+          Lock Cage Motor
+        </text>
+        <text
+          x="100"
+          y="50"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="12"
+          fill="rgba(255,255,255,0.9)"
+        >
+          Motorized Lock System
+        </text>
+        <text
+          x="100"
+          y="70"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="11"
+          fill="rgba(255,255,255,0.8)"
+        >
+          🔒 Servo/Stepper Control
+        </text>
+      </g>
+
+      <!-- Speaker -->
+      <g transform="translate(550, 680)">
+        <rect
+          x="0"
+          y="0"
+          width="200"
+          height="100"
+          rx="15"
+          fill="url(#speakerGrad)"
+          filter="url(#dropshadow)"
+        />
+        <text
+          x="100"
+          y="30"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="16"
+          font-weight="bold"
+          fill="white"
+        >
+          Speaker Module
+        </text>
+        <text
+          x="100"
+          y="50"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="12"
+          fill="rgba(255,255,255,0.9)"
+        >
+          Voice Commands
+        </text>
+        <text
+          x="100"
+          y="70"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="11"
+          fill="rgba(255,255,255,0.8)"
+        >
+          🔊 Audio Output
+        </text>
+      </g>
+
+      <!-- Protocol Labels for device connections -->
+      <rect
+        x="115"
+        y="635"
+        width="70"
+        height="20"
+        rx="10"
+        fill="rgba(231, 76, 60, 0.1)"
+        stroke="#e74c3c"
+        stroke-width="1"
+      />
+      <text
+        x="150"
+        y="648"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="9"
+        font-weight="bold"
+        fill="#e74c3c"
+      >
+        GPIO/PWM
+      </text>
+
+      <rect
+        x="620"
+        y="635"
+        width="80"
+        height="20"
+        rx="10"
+        fill="rgba(243, 156, 18, 0.1)"
+        stroke="#f39c12"
+        stroke-width="1"
+      />
+      <text
+        x="660"
+        y="648"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="9"
+        font-weight="bold"
+        fill="#f39c12"
+      >
+        I2S/Analog
+      </text>
+
+      <!-- Network Information Panel -->
+      <g transform="translate(50, 800)">
+        <rect
+          x="0"
+          y="0"
+          width="700"
+          height="80"
+          rx="10"
+          fill="rgba(236, 240, 241, 0.9)"
+          stroke="#bdc3c7"
+          stroke-width="1"
+          filter="url(#dropshadow)"
+        />
+        <text
+          x="350"
+          y="25"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="14"
+          font-weight="bold"
+          fill="#2c3e50"
+        >
+          Network Communication Protocols
+        </text>
+
+        <text
+          x="60"
+          y="45"
+          font-family="Arial, sans-serif"
+          font-size="11"
+          fill="#2c3e50"
+        >
+          <tspan font-weight="bold">Mobile ↔ Network:</tspan>
+          Wi-Fi (802.11), HTTPS/REST API
+        </text>
+        <text
+          x="400"
+          y="45"
+          font-family="Arial, sans-serif"
+          font-size="11"
+          fill="#2c3e50"
+        >
+          <tspan font-weight="bold">Network ↔ IoT:</tspan>
+          Wi-Fi, Bluetooth, MQTT
+        </text>
+
+        <text
+          x="60"
+          y="65"
+          font-family="Arial, sans-serif"
+          font-size="11"
+          fill="#2c3e50"
+        >
+          <tspan font-weight="bold">IoT ↔ Lock:</tspan>
+          GPIO Digital/PWM Signals
+        </text>
+        <text
+          x="400"
+          y="65"
+          font-family="Arial, sans-serif"
+          font-size="11"
+          fill="#2c3e50"
+        >
+          <tspan font-weight="bold">IoT ↔ Speaker:</tspan>
+          I2S/Analog Audio Output
+        </text>
+      </g>
+    </svg>
+  </body>
+</html>
